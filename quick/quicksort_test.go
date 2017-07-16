@@ -35,7 +35,7 @@ func TestOrder(t *testing.T) {
 		TestCase{[]int{6, 2, 5, 9, 2, 1, 0, 6}, []int{2, 5, 2, 1, 0, 6, 6, 9}},
 		TestCase{[]int{6, 2, 5, 9, 2}, []int{2, 5, 2, 6, 9}},
 	} {
-		elem.RunSortTest(t, orderByPivot)
+		elem.RunOrderTest(t, orderByPivot)
 	}
 }
 

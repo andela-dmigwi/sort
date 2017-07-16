@@ -1,0 +1,7 @@
+package: .
+import: []
+testImport:
+- package: github.com/andela-dmigwi/sort
+  subpackages:
+  - mergesort
+  - testing

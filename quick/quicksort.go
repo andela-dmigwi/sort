@@ -33,7 +33,7 @@ func orderByPivot(list []int) ([]int, int) {
 	if len(append(lessThan, greaterThan...)) == 0 {
 		p = 0
 	} else {
-		p = len(lessThan, equalTo...))
+		p = len(append(lessThan, equalTo...))
 	}
 
 	sorted = append(append(lessThan, equalTo...), greaterThan...)
@@ -61,9 +61,9 @@ func sortRecursively(unsortedArray []int) []int {
 }
 
 //Sort return an array of integer arrange in ascending order by implementing quickSort algorithm
-func Sort(array []int) ([]int, int) {
+func Sort(array []int) []int {
 
 	sortRecursively(array[:])
 
-	return array, 0
+	return array
 }

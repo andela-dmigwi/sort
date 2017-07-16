@@ -12,13 +12,27 @@ type TestCase struct {
 	Input, Expected []int
 }
 
-type sortFunc func([]int) ([]int, int)
+type orderFunc func([]int) ([]int, int)
+type sortMainFunc func([]int) []int
 type swapFunc func([]int, []int) []int
 
-// RunSortTest evaluates the functionality of sort function
-func (c TestCase) RunSortTest(t *testing.T, sort sortFunc) {
+// RunOrderTest evaluates the functionality of order function
+func (c TestCase) RunOrderTest(t *testing.T, order orderFunc) {
+
 	t.Run("", func(t *testing.T) {
-		var output, _ = sort(c.Input)
+		var output, _ = order(c.Input)
+
+		if !reflect.DeepEqual(c.Expected, output) {
+			t.Errorf("sort(%v) is not equal to %v (should not be actual output %v)", c.Input, c.Expected, output)
+		}
+	})
+}
+
+// RunSortTest evaluates the functionality of sort function
+func (c TestCase) RunSortTest(t *testing.T, sort sortMainFunc) {
+
+	t.Run("", func(t *testing.T) {
+		var output = sort(c.Input)
 
 		if !reflect.DeepEqual(c.Expected, output) {
 			t.Errorf("sort(%v) is not equal to %v (should not be actual output %v)", c.Input, c.Expected, output)
